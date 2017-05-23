@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "node_modules": true,
+        "junk_js_files": true,
+        "dist": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
+}
