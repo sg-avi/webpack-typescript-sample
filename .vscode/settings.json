@@ -2,7 +2,7 @@
 {
     "files.exclude": {
         "node_modules": true,
-        "junk_js_files": true,
+        "junk_js_files": true
     },
     "typescript.tsdk": "node_modules/typescript/lib"
 }
