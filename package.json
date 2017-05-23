@@ -29,6 +29,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.1",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.3",
     "url-loader": "^0.5.8",

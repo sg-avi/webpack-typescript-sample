@@ -8,7 +8,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.ts$/,
                 loader: "ts-loader"
@@ -19,7 +19,13 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: "css-loader!less-loader"
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "less-loader" // compiles Less to CSS
+                }]
             }
         ]
     },
@@ -32,7 +38,7 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: [ '*', '.ts', '.js', '.less', '.css', '.html']
+        extensions: ['*', '.ts', '.js', '.less', '.css', '.html']
     },
     devtool: 'source-map',
 };
