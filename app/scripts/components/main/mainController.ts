@@ -1,4 +1,4 @@
-export class MainController implements ng.IComponentController {
+  export class MainController implements ng.IComponentController {
 
     private input: number;
     private x: number;
