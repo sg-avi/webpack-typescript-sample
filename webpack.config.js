@@ -32,5 +32,6 @@ module.exports = {
     ],
     resolve: {
         extensions: [ '*', '.ts', '.js', '.less', '.css', '.html']
-    }
+    },
+    devtool: 'inline-source-map',
 };

@@ -16,11 +16,13 @@ mdl.config([
     '$stateProvider', (stateProvider: angular.ui.IStateProvider) => {
         stateProvider.state({
             name: 'main',
-            url: '/',
+            url: '/:num?',
             component: 'mainComponent',
             resolve: {
-                input: () => 1
+                input: ['$stateParams', (stateParams: ng.ui.IStateParamsService) => {
+                    return stateParams['num'] || 1;
+                }]
             }
-        })
+        });
     }
 ]);
