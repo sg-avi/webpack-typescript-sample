@@ -12,10 +12,15 @@ var mdl: ng.IModule = angular.module('SampleApp', ['ui.router']);
 
 mdl.component('mainComponent', MainComponent());
 
+mdl.config(['$compileProvider', (compileProvider: ng.ICompileProvider) => {
+    compileProvider.debugInfoEnabled(false);
+    compileProvider.commentDirectivesEnabled(false);
+    compileProvider.cssClassDirectivesEnabled(false);
+}]);
+
 mdl.config([
-  // $locationProvider.html5Mode(true)
     '$stateProvider', '$locationProvider',
-    (stateProvider: angular.ui.IStateProvider, locationProvider:ng.ILocationProvider) => {
+    (stateProvider: angular.ui.IStateProvider, locationProvider: ng.ILocationProvider) => {
 
         locationProvider.html5Mode(true);
 
