@@ -27,7 +27,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'MyApp!',
             template: 'app/index.ejs',
-            filename: 'index.html'
+            filename: 'index.html',
+            favicon: 'favicon.ico'
         })
     ],
     resolve: {

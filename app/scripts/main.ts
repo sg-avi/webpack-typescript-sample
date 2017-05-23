@@ -13,7 +13,12 @@ var mdl: ng.IModule = angular.module('SampleApp', ['ui.router']);
 mdl.component('mainComponent', MainComponent());
 
 mdl.config([
-    '$stateProvider', (stateProvider: angular.ui.IStateProvider) => {
+  // $locationProvider.html5Mode(true)
+    '$stateProvider', '$locationProvider',
+    (stateProvider: angular.ui.IStateProvider, locationProvider:ng.ILocationProvider) => {
+
+        locationProvider.html5Mode(true);
+
         stateProvider.state({
             name: 'main',
             url: '/:num?',
