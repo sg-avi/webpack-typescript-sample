@@ -1,9 +1,5 @@
 import * as angular from "angular";
-import "angular-ui-router";
 import { MainComponent } from "./components/main/mainComponent";
-import * as angular_material from "angular-material";
-
-console.log(`I think ${angular_material} is 'angular-material'`);
 
 class BLA {
     static MakeSound(): void {
@@ -11,7 +7,7 @@ class BLA {
     }
 }
 
-var mdl: ng.IModule = angular.module('SampleApp', ['ui.router']);
+var mdl: ng.IModule = angular.module('SampleApp', [require("angular-ui-router"), require("angular-material")]);
 
 mdl.component('mainComponent', MainComponent());
 
