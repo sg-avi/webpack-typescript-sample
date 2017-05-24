@@ -1,6 +1,9 @@
 import * as angular from "angular";
 import "angular-ui-router";
-import { MainComponent } from "./components/main/mainComponent"
+import { MainComponent } from "./components/main/mainComponent";
+import * as angular_material from "angular-material";
+
+console.log(`I think ${angular_material} is 'angular-material'`);
 
 class BLA {
     static MakeSound(): void {
