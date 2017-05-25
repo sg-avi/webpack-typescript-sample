@@ -1,5 +1,6 @@
 import * as angular from "angular";
-import { MainComponent } from "./components/main/mainComponent";
+import { MainComponent } from "components/main/mainComponent";
+import { VersionComponent } from "components/version/versionComponent";
 
 class BLA {
     static MakeSound(): void {
@@ -10,6 +11,7 @@ class BLA {
 var mdl: ng.IModule = angular.module('SampleApp', [require("angular-ui-router").default, require("angular-material")]);
 
 mdl.component('mainComponent', MainComponent());
+mdl.component('version', VersionComponent());
 
 mdl.config(['$compileProvider', (compileProvider: ng.ICompileProvider) => {
     compileProvider.debugInfoEnabled(false);
@@ -35,3 +37,5 @@ mdl.config([
         });
     }
 ]);
+
+mdl.constant('config', require('config'));

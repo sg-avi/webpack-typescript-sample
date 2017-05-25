@@ -1,17 +1,22 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
+let isDevelopmentMode = !(require('yargs').argv.p || false);
+
+console.log(`isDevelopmentMode = ${isDevelopmentMode}`)
 
 module.exports = {
     entry: './app/scripts/main.ts',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        pathinfo: isDevelopmentMode
     },
     module: {
         rules: [
             {
                 test: /\.ts$/,
-                loader: "ts-loader"
+                loader: "awesome-typescript-loader"
             },
             {
                 test: /\.html$/,
@@ -38,7 +43,21 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['*', '.ts', '.js', '.less', '.css', '.html']
+        extensions: ['*', '.ts', '.js', '.less', '.css', '.html'],
+        modules: [path.resolve(__dirname, "app/scripts"), "node_modules"],
+        alias: {
+            config: getConfigPath()
+        }
     },
     devtool: 'source-map',
 };
+
+function getConfigPath() {
+    let mode = "dev";
+
+    if (!isDevelopmentMode) {
+        mode = "prod";
+    }
+
+    return path.resolve(__dirname, 'app', 'config', `${mode}.json`);
+}
